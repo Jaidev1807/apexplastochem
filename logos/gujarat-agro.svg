@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none">
+  <rect x="10" y="15" width="50" height="50" rx="6" stroke="#196f3d" stroke-width="2.5" fill="#eafaf1"/>
+  <text x="35" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#196f3d">GAIC</text>
+  <text x="70" y="38" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#196f3d">Gujarat Agro</text>
+  <text x="70" y="53" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#196f3d">Industries Corp.</text>
+  <text x="70" y="66" font-family="Arial, sans-serif" font-size="8" fill="#5d6d7e">Govt. Enterprise</text>
+</svg>

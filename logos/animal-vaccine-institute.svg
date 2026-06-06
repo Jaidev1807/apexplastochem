@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none">
+  <rect x="10" y="15" width="50" height="50" rx="6" stroke="#1a5276" stroke-width="2.5" fill="#eaf2f8"/>
+  <text x="35" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1a5276">AVI</text>
+  <text x="70" y="38" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#1a5276">Animal Vaccine</text>
+  <text x="70" y="53" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#1a5276">Institute</text>
+  <text x="70" y="66" font-family="Arial, sans-serif" font-size="8" fill="#5d6d7e">Govt. of Gujarat</text>
+</svg>

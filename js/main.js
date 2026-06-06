@@ -41,6 +41,12 @@ function handleSubmit(btn) {
   // a fetch() call to your form endpoint.
 }
 
+/* ── Client Logo Marquee ────────────────────────────────── */
+document.querySelectorAll('.clients-track').forEach(track => {
+  const items = [...track.children];
+  items.forEach(item => track.appendChild(item.cloneNode(true)));
+});
+
 /* ── Scroll Reveal ───────────────────────────────────────── */
 const revealObserver = new IntersectionObserver(
   (entries) => {
