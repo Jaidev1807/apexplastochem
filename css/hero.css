@@ -1,0 +1,304 @@
+/* ============================================================
+   hero.css — Hero section, ticker bar, stats bar
+   ============================================================ */
+
+/* ── Hero ────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 100px 40px 60px;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -200px;
+  top: -100px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 82, 10, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 0.5px solid var(--border2);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink2);
+  margin-bottom: 24px;
+  letter-spacing: 0.3px;
+}
+
+.hero-badge span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* Heading */
+.hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-weight: 400;
+  max-width: 480px;
+}
+
+/* Action buttons */
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Cert badges row */
+.hero-certs {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 10px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--ink2);
+  text-align: center;
+  text-transform: uppercase;
+  min-width: 90px;
+}
+
+.cert-badge .cert-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+/* Right side visual grid */
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.hero-img-card {
+  border-radius: var(--rl);
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--white);
+  border: 0.5px solid var(--border);
+}
+
+.hero-img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero-img-card:hover img {
+  transform: scale(1.05);
+}
+
+.hero-img-card.tall {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+/* Floating stat card */
+.hero-float {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--rl);
+  padding: 14px 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.hero-float .hf-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.hero-float .hf-num sup {
+  font-size: 14px;
+}
+
+.hero-float .hf-label {
+  font-size: 11px;
+  color: var(--ink3);
+  margin-top: 2px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* ── Ticker ──────────────────────────────────────────────── */
+.ticker {
+  background: var(--ink);
+  color: #fff;
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-inner {
+  display: inline-flex;
+  gap: 0;
+  animation: ticker 30s linear infinite;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ticker-item strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+.ticker-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Stats ───────────────────────────────────────────────── */
+.stats {
+  background: var(--white);
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  padding: 56px 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  padding: 24px 40px;
+  border-right: 0.5px solid var(--border);
+  text-align: center;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.stat-num sup {
+  font-size: 18px;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--ink3);
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 100px 24px 60px;
+  }
+  .hero-visual {
+    display: none;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 0.5px solid var(--border);
+  }
+}

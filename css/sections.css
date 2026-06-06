@@ -1,0 +1,319 @@
+/* ============================================================
+   sections.css — Why Us, Custom, Caps & Closures, Clients
+   ============================================================ */
+
+/* ── Why Us ──────────────────────────────────────────────── */
+.why {
+  background: var(--paper);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+  max-width: 1100px;
+}
+
+.why-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--rl);
+  padding: 28px 32px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.why-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.why-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.why-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.why-card p {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ── Custom Manufacturing ─────────────────────────────────── */
+.custom {
+  background: linear-gradient(135deg, #0D0D0B 0%, #1a1a16 100%);
+  color: #fff;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.custom-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.custom .section-label { color: var(--gold); }
+.custom .section-title { color: #fff; }
+
+.custom-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 36px;
+}
+
+.custom-step {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  align-items: flex-start;
+}
+
+.custom-step:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-content h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.step-content p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.custom-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.custom-img {
+  border-radius: var(--rl);
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.custom-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.custom-img:hover img {
+  opacity: 1;
+}
+
+.custom-img.span2 {
+  grid-column: span 2;
+  aspect-ratio: 16 / 7;
+}
+
+/* ── Caps & Closures ─────────────────────────────────────── */
+.caps {
+  background: var(--white);
+}
+
+.caps-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.caps-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.caps-badge {
+  background: var(--paper);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink2);
+}
+
+/* Caps spec table */
+.caps-spec-box {
+  background: var(--ink);
+  border-radius: var(--rl);
+  padding: 32px;
+  color: #fff;
+}
+
+.caps-spec-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.caps-spec-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.caps-spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+}
+
+.caps-spec-row span:first-child { color: rgba(255, 255, 255, 0.7); }
+.caps-spec-row span:last-child  { color: #fff; font-weight: 500; }
+.caps-spec-row.last             { border-bottom: none; }
+
+/* Caps catalogue grid */
+.caps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.cap-card {
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px;
+  text-align: center;
+  background: var(--paper);
+  transition: all 0.2s;
+}
+
+.cap-card:hover {
+  border-color: var(--accent2);
+  transform: translateY(-2px);
+}
+
+.cap-size {
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.cap-name {
+  font-size: 11px;
+  color: var(--ink2);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.cap-specs {
+  font-size: 11px;
+  color: var(--ink3);
+  line-height: 1.6;
+}
+
+/* ── Clients ─────────────────────────────────────────────── */
+.clients {
+  background: var(--paper);
+  text-align: center;
+}
+
+.clients-grid {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-top: 48px;
+  flex-wrap: wrap;
+  border: 0.5px solid var(--border);
+  border-radius: var(--rl);
+  overflow: hidden;
+  background: var(--white);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.client-item {
+  flex: 1;
+  min-width: 140px;
+  padding: 28px 24px;
+  border-right: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.client-item:hover {
+  background: var(--paper);
+}
+
+.client-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.client-type {
+  font-size: 11px;
+  color: var(--ink3);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .why-grid      { grid-template-columns: 1fr; }
+  .custom-inner  { grid-template-columns: 1fr; gap: 40px; }
+  .caps-intro    { grid-template-columns: 1fr; }
+  .caps-grid     { grid-template-columns: repeat(2, 1fr); }
+}
