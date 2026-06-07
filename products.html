@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Products — Apex Plastochem | HDPE Bottles, Jars, Jerrycans, Caps
+    </title>
+    <meta
+      name="description"
+      content="Complete product catalogue — IBM tablet containers, HDPE packer bottles, jars (100ml–15L), jerrycans (1L–15L), dose dispensing, caps & closures, inners & plugs. ISO 9001 certified."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <style>
+      /* ── Products Page ─────────────────────────────────── */
+      .page-hero {
+        padding: 120px 40px 60px;
+        text-align: center;
+        background: var(--paper);
+        border-bottom: 0.5px solid var(--border);
+      }
+      .page-hero .section-label {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+      .page-hero h1 {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+      .page-hero p {
+        font-size: 16px;
+        color: var(--ink2);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .product-section {
+        padding: 80px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .product-section:nth-child(even) {
+        background: var(--paper);
+      }
+      .product-section-header {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+      .product-section h2 {
+        font-family: "Outfit", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .product-section .cat-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--accent);
+        background: rgba(218, 119, 13, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+      }
+      .product-section .section-desc {
+        font-size: 15px;
+        color: var(--ink2);
+        line-height: 1.6;
+        max-width: 700px;
+        margin-bottom: 10px;
+      }
+      .product-section .spec-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+      }
+      .product-section .spec-item {
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        color: var(--ink3);
+        background: var(--white);
+        border: 0.5px solid var(--border);
+        padding: 6px 14px;
+        border-radius: var(--r);
+      }
+
+      .product-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+      }
+      .product-gallery img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: var(--r);
+        border: 0.5px solid var(--border);
+        background: var(--white);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+      .product-gallery img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Lightbox */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.85);
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 36px;
+        color: #fff;
+        cursor: pointer;
+        font-family: "Outfit", sans-serif;
+        font-weight: 300;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: var(--accent);
+        text-decoration: none;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Divider */
+      .section-divider {
+        border: none;
+        border-top: 0.5px solid var(--border);
+        margin: 0;
+      }
+
+      @media (max-width: 600px) {
+        .product-section {
+          padding: 48px 20px;
+        }
+        .product-gallery {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+        .page-hero {
+          padding: 100px 20px 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAVIGATION ─────────────────────────────────────── -->
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="logos/logo-transparent.png"
+          alt="Apex Plastochem"
+          class="nav-logo-img"
+        />
+        <div>
+          <span class="nav-logo-text">Apex Plastochem</span>
+          <span class="nav-logo-sub">Pvt. Ltd. · ISO 9001 Certified</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#">Home</a>
+        <a href="index.html#custom">Custom</a>
+        <a href="index.html#clients">Clients</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+    </nav>
+
+    <!-- ── HERO ──────────────────────────────────────────── -->
+    <div class="page-hero">
+      <div class="section-label">Full Catalogue</div>
+      <h1>Our Complete<br />Product Range</h1>
+    </div>
+
+    <!-- ── IBM TABLET CONTAINERS ─────────────────────────── -->
+    <div class="product-section">
+      <div class="product-section-header">
+        <h2>IBM Tablet Containers</h2>
+        <span class="cat-badge">Pharma</span>
+      </div>
+      <p class="section-desc">
+        DMF HDPE pharmaceutical rounds manufactured on Injection Blow Moulding
+        (IBM) machines in a clean room environment under FDA compliance
+        standards. All production operations are designed with minimal human
+        intervention to avoid errors and prevent contamination.
+      </p>
+      <div class="spec-list">
+        <span class="spec-item">Material: HDPE</span>
+        <span class="spec-item">FDA Compliant</span>
+        <span class="spec-item">Clean Room Manufacturing</span>
+        <span class="spec-item">DMF Grade</span>
+      </div>
+      <div class="product-gallery">
+        <img
+          src="images/ibm/ibm-bottle.jpg"
+          alt="IBM HDPE Tablet Container"
+          loading="lazy"
+        />
+        <img
+          src="images/ibm/child-resistant.jpg"
+          alt="Child Resistant Closure on IBM Container"
+          loading="lazy"
+        />
+        <img
+          src="images/ibm/ct-closure.jpg"
+          alt="CT Closure IBM Bottle"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ── HDPE PACKER BOTTLES ───────────────────────────── -->
+    <div class="product-section">
+      <div class="product-section-header">
+        <h2>HDPE Packer Bottles</h2>
+        <span class="cat-badge">Pharma</span>
+      </div>
+      <p class="section-desc">
+        Straight-sided wide-mouth HDPE packers typically used for
+        pharmaceuticals, vitamins, and nutritional supplements in pill or tablet
+        form. Available with continuous thread (C/T) neck finish in multiple
+        styles and sizes.
+      </p>
+      <div class="spec-list">
+        <span class="spec-item">Material: HDPE</span>
+        <span class="spec-item">C/T Neck Finish</span>
+        <span class="spec-item">40cc – 250cc</span>
+        <span class="spec-item">ISO 9001</span>
+      </div>
+      <div class="product-gallery">
+        <img
+          src="images/bottles/bottle-1.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-2.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-3.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-4.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-5.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-6.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-7.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-8.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-9.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-10.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-11.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-12.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-13.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+        <img
+          src="images/bottles/bottle-14.jpg"
+          alt="HDPE Packer Bottle"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ── JARS ──────────────────────────────────────────── -->
+    <div class="product-section">
+      <div class="product-section-header">
+        <h2>Jars</h2>
+        <span class="cat-badge">Food &amp; Dairy</span>
+      </div>
+      <p class="section-desc">
+        Wide-opening jars in HDPE and PP ranging from 100ml to 15 litres. Used
+        for powder, granules, dairy products, and food ingredients. Supplied to
+        AMUL for their Amulya 10kg powder containers. Available in food-grade
+        and pharma-grade.
+      </p>
+      <div class="spec-list">
+        <span class="spec-item">Material: HDPE &amp; PP</span>
+        <span class="spec-item">100ml – 15L</span>
+        <span class="spec-item">Food Grade</span>
+        <span class="spec-item">AMUL Approved</span>
+      </div>
+      <div class="product-gallery">
+        <img src="images/jars/jar-1.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-2.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-3.jpg" alt="PP Jar" loading="lazy" />
+        <img src="images/jars/jar-4.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-5.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-6.jpg" alt="PP Jar" loading="lazy" />
+        <img src="images/jars/jar-7.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-8.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-9.jpg" alt="PP Jar" loading="lazy" />
+        <img src="images/jars/jar-10.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-11.jpg" alt="HDPE Jar" loading="lazy" />
+        <img src="images/jars/jar-12.jpg" alt="PP Jar" loading="lazy" />
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ── JERRYCANS ─────────────────────────────────────── -->
+    <div class="product-section">
+      <div class="product-section-header">
+        <h2>Jerrycans</h2>
+        <span class="cat-badge">Industrial</span>
+      </div>
+      <p class="section-desc">
+        Heavy-duty jerrycans in HDPE and PP from 1 litre to 15 litres. Used for
+        edible oil, chemicals, pesticides, and sanitizers. Supplied to Vimal Oil
+        and other leading FMCG brands. Multiple handle and spout configurations
+        available.
+      </p>
+      <div class="spec-list">
+        <span class="spec-item">Material: HDPE &amp; PP</span>
+        <span class="spec-item">1L – 15L</span>
+        <span class="spec-item">Industrial Grade</span>
+        <span class="spec-item">Custom Spouts</span>
+      </div>
+      <div class="product-gallery">
+        <img
+          src="images/jerrycans/jerrycan-1.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-2.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-3.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-4.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-5.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-6.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-7.jpg"
+          alt="PP Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-8.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-9.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-10.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-11.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-12.jpg"
+          alt="PP Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-13.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="images/jerrycans/jerrycan-14.jpg"
+          alt="HDPE Jerrycan"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ── DOSE DISPENSING ───────────────────────────────── -->
+    <div class="product-section">
+      <div class="product-section-header">
+        <h2>Dose Dispensing &amp; Surgical</h2>
+        <span class="cat-badge">Pharma</span>
+      </div>
+      <p class="section-desc">
+        Precision dose-dispensing solutions for surgical and pharmaceutical
+        applications. Designed for accurate liquid measurement and controlled
+        dispensing in hospital, clinical, and veterinary settings.
+      </p>
+      <div class="spec-list">
+        <span class="spec-item">Surgical Grade</span>
+        <span class="spec-item">Precision Dispensing</span>
+        <span class="spec-item">Clinical Use</span>
+      </div>
+      <div class="product-gallery">
+        <img
+          src="images/dose-dispensing/dose-1.jpg"
+          alt="Dose Dispensing"
+          loading="lazy"
+        />
+        <img
+          src="images/dose-dispensing/dose-2.jpg"
+          alt="Dose Dispensing"
+          loading="lazy"
+        />
+        <img
+          src="images/dose-dispensing/dose-3.jpg"
+          alt="Dose Dispensing"
+          loading="lazy"
+        />
+        <img
+          src="images/dose-dispensing/dose-4.jpg"
+          alt="Dose Dispensing"
+          loading="lazy"
+        />
+        <img
+          src="images/dose-dispensing/dose-5.jpg"
+          alt="Dose Dispensing"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ── CAPS & CLOSURES ───────────────────────────────── -->
+    <div class="product-section">
+      <div class="product-section-header">
+        <h2>Caps &amp; Closures</h2>
+        <span class="cat-badge">Caps &amp; Closures</span>
+      </div>
+      <p class="section-desc">
+        Child-resistant closures in HDPE and PP that meet Consumer Product
+        Safety Commission (CPSC) standards in the USA. Available with text
+        debossed, embossed, and pictorial designs. Rigorous protocol testing for
+        safety compliance.
+      </p>
+      <div class="spec-list">
+        <span class="spec-item">Material: HDPE &amp; PP</span>
+        <span class="spec-item">CPSC Certified</span>
+        <span class="spec-item">Child Resistant</span>
+        <span class="spec-item">Custom Debossing</span>
+      </div>
+      <div class="product-gallery">
+        <img
+          src="images/caps-closures/caps-1.jpg"
+          alt="Child Resistant Closure"
+          loading="lazy"
+        />
+        <img
+          src="images/caps-closures/caps-2.png"
+          alt="Caps and Closures"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ── INNERS & PLUGS ────────────────────────────────── -->
+    <div class="product-section">
+      <div class="product-section-header">
+        <h2>Inners &amp; Plugs</h2>
+        <span class="cat-badge">Components</span>
+      </div>
+      <p class="section-desc">
+        Bowl-type inner plugs, 28mm bottle plugs, and plastic inner plugs
+        manufactured in HDPE and LDPE. Ensures leak-proof sealing for bottles
+        and containers across pharmaceutical and food packaging applications.
+      </p>
+      <div class="spec-list">
+        <span class="spec-item">Material: HDPE &amp; LDPE</span>
+        <span class="spec-item">28mm &amp; Custom Sizes</span>
+        <span class="spec-item">Leak-Proof</span>
+        <span class="spec-item">Bowl Type</span>
+      </div>
+      <div class="product-gallery">
+        <img
+          src="images/inners-plugs/plug-1.jpg"
+          alt="Bowl Type Inner Plug"
+          loading="lazy"
+        />
+        <img
+          src="images/inners-plugs/plug-2.jpg"
+          alt="28mm Bottle Plug Inner"
+          loading="lazy"
+        />
+        <img
+          src="images/inners-plugs/plug-3.jpg"
+          alt="Plastic Inner Plug"
+          loading="lazy"
+        />
+        <img
+          src="images/inners-plugs/plug-4.jpg"
+          alt="Inner Plug"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- ── CTA ───────────────────────────────────────────── -->
+    <div style="text-align: center; padding: 60px 40px; background: var(--ink)">
+      <h2
+        style="
+          font-family: 'Outfit', sans-serif;
+          font-size: 28px;
+          color: #fff;
+          margin-bottom: 12px;
+        "
+      >
+        Need a custom size or specification?
+      </h2>
+      <p
+        style="
+          color: rgba(255, 255, 255, 0.6);
+          margin-bottom: 24px;
+          font-size: 15px;
+        "
+      >
+        We manufacture custom moulds and can match any shape, colour, or neck
+        finish.
+      </p>
+      <a
+        href="index.html#contact"
+        style="
+          display: inline-block;
+          padding: 14px 32px;
+          background: var(--accent);
+          color: #fff;
+          border-radius: var(--r);
+          text-decoration: none;
+          font-family: 'Outfit', sans-serif;
+          font-weight: 600;
+          font-size: 15px;
+        "
+      >
+        Get a Quote
+      </a>
+    </div>
+
+    <!-- ── FOOTER ────────────────────────────────────────── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-name">Apex (Guj.) Plastochem Pvt. Ltd.</div>
+          <div class="footer-addr">
+            Plot No. 4002, Phase-IV, G.I.D.C., Vatva,<br />
+            Ahmedabad — 382 445, Gujarat, India
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#products">Products</a>
+          <a href="index.html#custom">Custom</a>
+          <a href="index.html#clients">Clients</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Apex (Guj.) Plastochem Pvt. Ltd. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Lightbox Script -->
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img src="" alt="Product enlarged" />
+    </div>
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = lightbox.querySelector("img");
+      document.querySelectorAll(".product-gallery img").forEach((img) => {
+        img.addEventListener("click", () => {
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lightbox.classList.add("active");
+        });
+      });
+      lightbox.addEventListener("click", () =>
+        lightbox.classList.remove("active")
+      );
+    </script>
+
+    <!-- Nav Shadow -->
+    <script>
+      const navEl = document.querySelector("nav");
+      window.addEventListener("scroll", () => {
+        navEl.style.boxShadow =
+          window.scrollY > 20 ? "0 1px 20px rgba(0,0,0,0.08)" : "none";
+      });
+    </script>
+  </body>
+</html>
