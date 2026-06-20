@@ -20,42 +20,44 @@ function filterProducts(cat, btn) {
 }
 
 /* ── Contact Form Submit ─────────────────────────────────── */
-const enquiryForm = document.getElementById('enquiry-form');
-if (enquiryForm) {
-  enquiryForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const btn = this.querySelector('.form-submit');
-    const successMsg = this.querySelector('.form-success');
-    const errorMsg = this.querySelector('.form-error');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    successMsg.style.display = 'none';
-    errorMsg.style.display = 'none';
+document.addEventListener('DOMContentLoaded', function () {
+  var enquiryForm = document.getElementById('enquiry-form');
+  if (enquiryForm) {
+    enquiryForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = this.querySelector('.form-submit');
+      var successMsg = this.querySelector('.form-success');
+      var errorMsg = this.querySelector('.form-error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
 
-    const formData = new FormData(this);
-    fetch('https://formsubmit.co/ajax/info@apexplastochem.com', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: formData
-    })
-      .then(r => r.json())
-      .then(data => {
-        if (data.success) {
-          successMsg.style.display = 'block';
-          btn.textContent = '✓ Sent!';
-          btn.style.background = '#1A7A4A';
-          this.reset();
-        } else {
-          throw new Error();
-        }
+      var formData = new FormData(this);
+      fetch('https://formsubmit.co/ajax/info@apexplastochem.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
       })
-      .catch(() => {
-        errorMsg.style.display = 'block';
-        btn.textContent = 'Send Enquiry →';
-        btn.disabled = false;
-      });
-  });
-}
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success) {
+            successMsg.style.display = 'block';
+            btn.textContent = '✓ Sent!';
+            btn.style.background = '#1A7A4A';
+            enquiryForm.reset();
+          } else {
+            throw new Error();
+          }
+        })
+        .catch(function () {
+          errorMsg.style.display = 'block';
+          btn.textContent = 'Send Enquiry →';
+          btn.disabled = false;
+        });
+    });
+  }
+});
 
 /* ── Client Logo Marquee ────────────────────────────────── */
 document.querySelectorAll('.clients-track').forEach(track => {
