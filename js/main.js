@@ -20,25 +20,41 @@ function filterProducts(cat, btn) {
 }
 
 /* ── Contact Form Submit ─────────────────────────────────── */
-function handleSubmit(btn) {
-  // Basic validation
-  const form    = btn.closest('.contact-form');
-  const name    = form.querySelector('input[type="text"]');
-  const email   = form.querySelector('input[type="email"]');
+const enquiryForm = document.getElementById('enquiry-form');
+if (enquiryForm) {
+  enquiryForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    const successMsg = this.querySelector('.form-success');
+    const errorMsg = this.querySelector('.form-error');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
 
-  if (!name.value.trim() || !email.value.trim()) {
-    alert('Please fill in your name and email before submitting.');
-    return;
-  }
-
-  // Success state
-  btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
-  btn.style.background = '#1A7A4A';
-  btn.disabled = true;
-
-  // NOTE: To actually send emails, connect this to a service like
-  // Formspree (formspree.io) or EmailJS. Replace the above with
-  // a fetch() call to your form endpoint.
+    const formData = new FormData(this);
+    fetch('https://formsubmit.co/ajax/info@apexplastochem.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) {
+          successMsg.style.display = 'block';
+          btn.textContent = '✓ Sent!';
+          btn.style.background = '#1A7A4A';
+          this.reset();
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(() => {
+        errorMsg.style.display = 'block';
+        btn.textContent = 'Send Enquiry →';
+        btn.disabled = false;
+      });
+  });
 }
 
 /* ── Client Logo Marquee ────────────────────────────────── */
