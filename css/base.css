@@ -1,25 +1,40 @@
 /* ============================================================
    base.css — Design tokens, resets, global typography
-   Edit colours and fonts here to change the whole site theme
+   Theme: "The Engineering Drawing" — precision-manufacturing
+   language drawn from Apex's own mould drawings and logo.
+   Palette derives from the logo: Apex blue + brass (logo yellow).
    ============================================================ */
 
 /* ── Design Tokens ───────────────────────────────────────── */
 :root {
   /* Colours */
-  --ink:     #0D0D0B;   /* Main text / dark backgrounds */
-  --ink2:    #3A3A36;   /* Body text */
-  --ink3:    #7A7A74;   /* Muted / labels */
-  --paper:   #F7F5F0;   /* Page background */
-  --white:   #FFFFFF;
-  --accent:  #E8520A;   /* Orange — primary CTA colour */
-  --accent2: #1A5FA8;   /* Blue — logo / links */
-  --gold:    #C4922A;   /* Gold accent — custom section */
-  --border:  #E2DED6;   /* Light borders */
-  --border2: #C8C4BA;   /* Medium borders */
+  --ink:        #101820;  /* Carbon — headings, near-black blue */
+  --ink2:       #3D4852;  /* Body text, blue-gray */
+  --ink3:       #6E7A85;  /* Muted / captions */
+  --paper:      #F3F5F6;  /* Porcelain — cool clean-room ground */
+  --white:      #FFFFFF;
+  --blue:       #1B5FAB;  /* Apex blue — from the logo. CTAs, links */
+  --blue-dark:  #164E8D;  /* Hover state */
+  --blue-deep:  #0C1F36;  /* Mould blue — dark section ground */
+  --blue-night: #081525;  /* Footer / deepest */
+  --brass:      #C8952F;  /* Brass — from the logo yellow. Signature accents */
+  --brass-soft: rgba(200, 149, 47, 0.14);
+  --border:     #DFE4E8;  /* Hairlines on light */
+  --border2:    #C3CCD3;  /* Medium borders */
+  --line-dark:  rgba(255, 255, 255, 0.1);  /* Hairlines on dark */
 
-  /* Border radius */
-  --r:  10px;
-  --rl: 16px;
+  /* Aliases kept for older markup */
+  --accent:  var(--blue);
+  --accent2: var(--blue);
+  --gold:    var(--brass);
+
+  /* Radius — tight, machined corners */
+  --r:  4px;
+  --rl: 8px;
+
+  /* Type */
+  --sans: 'Outfit', 'Segoe UI', -apple-system, sans-serif;
+  --mono: 'DM Mono', 'Consolas', monospace;
 }
 
 /* ── Reset ───────────────────────────────────────────────── */
@@ -33,22 +48,28 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: var(--blue);
+  color: #fff;
+}
+
 /* ── Base Typography ─────────────────────────────────────── */
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
   background: var(--paper);
   color: var(--ink);
   overflow-x: hidden;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
   font-weight: 600;
   color: var(--ink);
-  line-height: 1.15;
+  line-height: 1.12;
 }
 
 p {
@@ -62,90 +83,129 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
 /* ── Shared Button Styles ────────────────────────────────── */
 .btn-primary {
-  padding: 13px 28px;
-  background: var(--ink);
+  padding: 14px 30px;
+  background: var(--blue);
   color: #fff;
   border-radius: var(--r);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 550;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: background 0.2s, transform 0.15s;
   letter-spacing: 0.2px;
   display: inline-block;
 }
 .btn-primary:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
+  background: var(--blue-dark);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
-  padding: 13px 28px;
+  padding: 14px 30px;
   border: 1px solid var(--border2);
   background: transparent;
   color: var(--ink);
   border-radius: var(--r);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: border-color 0.2s, transform 0.15s;
   display: inline-block;
 }
 .btn-secondary:hover {
   border-color: var(--ink);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 /* ── Scroll Reveal Animations ────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .reveal.visible {
   opacity: 1;
   transform: none;
 }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
 
 /* ── Section Shared Styles ───────────────────────────────── */
 section {
-  padding: 80px 40px;
+  padding: 96px 40px;
 }
 
+/* Eyebrow label — mono, with a brass triangle from the logo mark */
 .section-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--blue);
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  width: 9px;
+  height: 8px;
+  background: var(--brass);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  flex-shrink: 0;
 }
 
 .section-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(24px, 2.8vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.4px;
+  font-family: var(--sans);
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 640;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  line-height: 1.15;
-  margin-bottom: 14px;
+  line-height: 1.08;
+  margin-bottom: 16px;
 }
 
 .section-sub {
-  font-size: 15px;
+  font-size: 15.5px;
   color: var(--ink2);
   line-height: 1.7;
   font-weight: 400;
   max-width: 560px;
 }
 
+/* Centered sections (clients) */
+.clients .section-label {
+  justify-content: center;
+}
+
+/* ── Reduced Motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 900px) {
   section {
-    padding: 60px 24px;
+    padding: 64px 24px;
   }
 }

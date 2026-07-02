@@ -15,11 +15,12 @@
     <link rel="icon" href="/icon-192.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#2b6cb5" />
+    <meta name="theme-color" content="#1B5FAB" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..700&family=DM+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/base.css" />
@@ -28,25 +29,21 @@
     <style>
       /* ── Products Page ─────────────────────────────────── */
       .page-hero {
-        padding: 120px 40px 60px;
+        padding: 140px 40px 64px;
         text-align: center;
         background: var(--paper);
-        border-bottom: 0.5px solid var(--border);
+        border-bottom: 1px solid var(--border);
       }
       .page-hero .section-label {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 2.5px;
-        color: var(--accent);
-        margin-bottom: 12px;
+        justify-content: center;
       }
       .page-hero h1 {
-        font-family: "Outfit", sans-serif;
-        font-size: clamp(28px, 4vw, 44px);
-        font-weight: 700;
+        font-family: var(--sans);
+        font-size: clamp(30px, 4vw, 48px);
+        font-weight: 650;
+        letter-spacing: -0.02em;
         color: var(--ink);
-        line-height: 1.2;
+        line-height: 1.08;
         margin-bottom: 16px;
       }
       .page-hero p {
@@ -58,12 +55,9 @@
       }
 
       .product-section {
-        padding: 80px 40px;
-        max-width: 1200px;
+        padding: 72px 40px;
+        max-width: 1160px;
         margin: 0 auto;
-      }
-      .product-section:nth-child(even) {
-        background: var(--paper);
       }
       .product-section-header {
         display: flex;
@@ -73,42 +67,46 @@
         flex-wrap: wrap;
       }
       .product-section h2 {
-        font-family: "Outfit", sans-serif;
-        font-size: 26px;
-        font-weight: 700;
+        font-family: var(--sans);
+        font-size: 27px;
+        font-weight: 640;
+        letter-spacing: -0.015em;
         color: var(--ink);
       }
       .product-section .cat-badge {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: var(--accent);
-        background: rgba(218, 119, 13, 0.08);
-        padding: 4px 12px;
-        border-radius: 20px;
+        letter-spacing: 0.16em;
+        color: var(--blue);
+        background: rgba(27, 95, 171, 0.08);
+        padding: 5px 12px;
+        border-radius: 3px;
       }
       .product-section .section-desc {
         font-size: 15px;
         color: var(--ink2);
-        line-height: 1.6;
+        line-height: 1.7;
         max-width: 700px;
-        margin-bottom: 10px;
+        margin-bottom: 14px;
       }
       .product-section .spec-list {
         display: flex;
-        gap: 20px;
+        gap: 10px;
         flex-wrap: wrap;
         margin-bottom: 32px;
       }
       .product-section .spec-item {
-        font-family: "DM Mono", monospace;
-        font-size: 12px;
-        color: var(--ink3);
+        font-family: var(--mono);
+        font-size: 11.5px;
+        font-weight: 500;
+        color: var(--ink2);
         background: var(--white);
-        border: 0.5px solid var(--border);
-        padding: 6px 14px;
+        border: 1px solid var(--border);
+        padding: 7px 14px;
         border-radius: var(--r);
+        letter-spacing: 0.02em;
       }
 
       .product-gallery {
@@ -121,14 +119,14 @@
         aspect-ratio: 1;
         object-fit: cover;
         border-radius: var(--r);
-        border: 0.5px solid var(--border);
+        border: 1px solid var(--border);
         background: var(--white);
         transition: transform 0.3s, box-shadow 0.3s;
         cursor: pointer;
       }
       .product-gallery img:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transform: scale(1.02);
+        box-shadow: 0 12px 32px rgba(12, 31, 54, 0.12);
       }
 
       /* Lightbox */
@@ -137,7 +135,7 @@
         position: fixed;
         inset: 0;
         z-index: 999;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(8, 21, 37, 0.88);
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -149,7 +147,7 @@
         max-width: 90vw;
         max-height: 90vh;
         object-fit: contain;
-        border-radius: 8px;
+        border-radius: 4px;
       }
       .lightbox-close {
         position: absolute;
@@ -158,29 +156,35 @@
         font-size: 36px;
         color: #fff;
         cursor: pointer;
-        font-family: "Outfit", sans-serif;
+        font-family: var(--sans);
         font-weight: 300;
-      }
-
-      .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 13px;
-        color: var(--accent);
-        text-decoration: none;
-        margin-bottom: 20px;
-        font-weight: 500;
-      }
-      .back-link:hover {
-        text-decoration: underline;
       }
 
       /* Divider */
       .section-divider {
         border: none;
-        border-top: 0.5px solid var(--border);
+        border-top: 1px solid var(--border);
         margin: 0;
+      }
+
+      /* Bottom CTA band */
+      .catalogue-cta {
+        text-align: center;
+        padding: 72px 40px;
+        background: linear-gradient(160deg, var(--blue-deep) 0%, #0a1a2d 100%);
+      }
+      .catalogue-cta h2 {
+        font-family: var(--sans);
+        font-size: clamp(24px, 3vw, 32px);
+        font-weight: 640;
+        letter-spacing: -0.015em;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .catalogue-cta p {
+        color: rgba(255, 255, 255, 0.62);
+        margin-bottom: 28px;
+        font-size: 15px;
       }
 
       @media (max-width: 600px) {
@@ -192,7 +196,7 @@
           gap: 10px;
         }
         .page-hero {
-          padding: 100px 20px 40px;
+          padding: 110px 20px 44px;
         }
       }
     </style>
@@ -208,7 +212,7 @@
         />
         <div>
           <span class="nav-logo-text">Apex Plastochem</span>
-          <span class="nav-logo-sub">Pvt. Ltd. · ISO 9001 Certified</span>
+          <span class="nav-logo-sub">Pvt. Ltd. · ISO 9001</span>
         </div>
       </a>
       <div class="nav-links">
@@ -255,16 +259,6 @@
           alt="Professional HDPE Bottles Range"
           loading="lazy"
         />
-        <!-- <img
-          src="../images/ibm/child-resistant.jpg"
-          alt="Child Resistant Closure on IBM Container"
-          loading="lazy"
-        /> -->
-        <!-- <img
-          src="../images/ibm/ct-closure.jpg"
-          alt="CT Closure IBM Bottle"
-          loading="lazy"
-        /> -->
       </div>
     </div>
 
@@ -294,20 +288,6 @@
           alt="HDPE Packer Bottles Professional Range"
           loading="lazy"
         />
-        <!-- <img src="../images/bottles/bottle-1.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-2.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-3.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-4.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-5.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-6.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-7.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-8.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-9.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-10.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-11.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-12.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-13.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
-        <!-- <img src="../images/bottles/bottle-14.jpg" alt="HDPE Packer Bottle" loading="lazy" /> -->
       </div>
     </div>
 
@@ -337,18 +317,6 @@
           alt="HDPE PP Jars Professional Range"
           loading="lazy"
         />
-        <!-- <img src="../images/jars/jar-1.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-2.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-3.jpg" alt="PP Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-4.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-5.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-6.jpg" alt="PP Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-7.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-8.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-9.jpg" alt="PP Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-10.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-11.jpg" alt="HDPE Jar" loading="lazy" /> -->
-        <!-- <img src="../images/jars/jar-12.jpg" alt="PP Jar" loading="lazy" /> -->
       </div>
     </div>
 
@@ -378,20 +346,6 @@
           alt="HDPE Jerrycans with Vimal Branding"
           loading="lazy"
         />
-        <!-- <img src="../images/jerrycans/jerrycan-1.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-2.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-3.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-4.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-5.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-6.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-7.jpg" alt="PP Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-8.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-9.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-10.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-11.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-12.jpg" alt="PP Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-13.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
-        <!-- <img src="../images/jerrycans/jerrycan-14.jpg" alt="HDPE Jerrycan" loading="lazy" /> -->
       </div>
     </div>
 
@@ -419,10 +373,6 @@
           alt="Dose Dispensing"
           loading="lazy"
         />
-        <!-- <img src="../images/dose-dispensing/dose-2.jpg" alt="Dose Dispensing" loading="lazy" /> -->
-        <!-- <img src="../images/dose-dispensing/dose-3.jpg" alt="Dose Dispensing" loading="lazy" /> -->
-        <!-- <img src="../images/dose-dispensing/dose-4.jpg" alt="Dose Dispensing" loading="lazy" /> -->
-        <!-- <img src="../images/dose-dispensing/dose-5.jpg" alt="Dose Dispensing" loading="lazy" /> -->
       </div>
     </div>
 
@@ -452,8 +402,6 @@
           alt="Caps and Closures Professional Range"
           loading="lazy"
         />
-        <!-- <img src="../images/caps-closures/caps-1.jpg" alt="Child Resistant Closure" loading="lazy" /> -->
-        <!-- <img src="../images/caps-closures/caps-2.png" alt="Caps and Closures" loading="lazy" /> -->
       </div>
     </div>
 
@@ -482,60 +430,26 @@
           alt="Bowl Type Inner Plug"
           loading="lazy"
         />
-        <!-- <img src="../images/inners-plugs/plug-2.jpg" alt="28mm Bottle Plug Inner" loading="lazy" /> -->
-        <!-- <img src="../images/inners-plugs/plug-3.jpg" alt="Plastic Inner Plug" loading="lazy" /> -->
-        <!-- <img src="../images/inners-plugs/plug-4.jpg" alt="Inner Plug" loading="lazy" /> -->
       </div>
     </div>
 
     <!-- ── CTA ───────────────────────────────────────────── -->
-    <div style="text-align: center; padding: 60px 40px; background: var(--ink)">
-      <h2
-        style="
-          font-family: 'Outfit', sans-serif;
-          font-size: 28px;
-          color: #fff;
-          margin-bottom: 12px;
-        "
-      >
-        Need a custom size or specification?
-      </h2>
-      <p
-        style="
-          color: rgba(255, 255, 255, 0.6);
-          margin-bottom: 24px;
-          font-size: 15px;
-        "
-      >
+    <div class="catalogue-cta">
+      <h2>Need a custom size or specification?</h2>
+      <p>
         We manufacture custom moulds and can match any shape, colour, or neck
         finish.
       </p>
-      <a
-        href="/#contact"
-        style="
-          display: inline-block;
-          padding: 14px 32px;
-          background: var(--accent);
-          color: #fff;
-          border-radius: var(--r);
-          text-decoration: none;
-          font-family: 'Outfit', sans-serif;
-          font-weight: 600;
-          font-size: 15px;
-        "
-      >
-        Get a Quote
-      </a>
+      <a href="/#contact" class="btn-primary">Get a quote</a>
     </div>
 
     <!-- ── FOOTER ────────────────────────────────────────── -->
     <footer>
       <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-name">Apex (Guj.) Plastochem Pvt. Ltd.</div>
-          <div class="footer-addr">
-            83 &amp; 103, GIDC Estate, Gozaria – 382825<br />Dist. Mehsana,
-            Gujarat, India
+        <div>
+          <div class="footer-logo">Apex (Guj.) Plastochem Pvt. Ltd.</div>
+          <div class="footer-sub">
+            Manufacturing since 1996 · ISO 9001 · Gujarat, India
           </div>
         </div>
         <div class="footer-links">
@@ -545,13 +459,13 @@
           <a href="/#clients">Clients</a>
           <a href="/#contact">Contact</a>
         </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2025 Apex (Guj.) Plastochem Pvt. Ltd. All rights reserved.
+        <div class="footer-copy">
+          © 2026 Apex (Guj.) Plastochem Pvt. Ltd. · apexplastochem.com
+        </div>
       </div>
     </footer>
 
-    <!-- Lightbox Script -->
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
       <span class="lightbox-close">&times;</span>
       <img src="" alt="Product enlarged" />

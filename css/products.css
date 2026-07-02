@@ -1,15 +1,15 @@
 /* ============================================================
-   products.css — Products section
+   products.css — Products section (dark, mould-blue ground)
    ============================================================ */
 
 .products {
-  background: var(--ink);
+  background: linear-gradient(175deg, var(--blue-deep) 0%, #0A1A2D 100%);
   color: #fff;
 }
 
-.products .section-label { color: var(--accent); }
+.products .section-label { color: var(--brass); }
 .products .section-title { color: #fff; }
-.products .section-sub   { color: rgba(255, 255, 255, 0.6); }
+.products .section-sub   { color: rgba(255, 255, 255, 0.62); }
 
 .products-header {
   display: flex;
@@ -18,6 +18,9 @@
   margin-bottom: 48px;
   flex-wrap: wrap;
   gap: 20px;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Filter tabs */
@@ -26,25 +29,29 @@
   gap: 8px;
   flex-wrap: wrap;
   margin-bottom: 32px;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tab-btn {
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  padding: 9px 18px;
+  border-radius: var(--r);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   background: transparent;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.66);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
   transition: all 0.2s;
+  text-decoration: none;
 }
 
 .tab-btn.active,
 .tab-btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--blue);
+  border-color: var(--blue);
   color: #fff;
 }
 
@@ -53,20 +60,22 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  max-width: 1160px;
+  margin: 0 auto;
 }
 
 .product-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid var(--line-dark);
   border-radius: var(--rl);
   overflow: hidden;
-  transition: all 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
   cursor: pointer;
 }
 
 .product-card:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
   transform: translateY(-4px);
 }
 
@@ -84,25 +93,26 @@
 }
 
 .product-card:hover .product-img img {
-  transform: scale(1.07);
+  transform: scale(1.06);
 }
 
 .product-body {
-  padding: 18px 20px;
+  padding: 20px 22px 22px;
 }
 
 .product-name {
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--sans);
+  font-size: 15.5px;
+  font-weight: 620;
   color: #fff;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
+  letter-spacing: -0.01em;
 }
 
 .product-desc {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.6;
+  line-height: 1.65;
   font-weight: 400;
 }
 
@@ -110,16 +120,34 @@
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .ptag {
-  font-size: 10px;
-  padding: 3px 9px;
-  border-radius: 12px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 3px;
   background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.66);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Section footer CTA */
+.products-cta {
+  text-align: center;
+  margin-top: 44px;
+}
+
+.products-cta .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.products-cta .btn-secondary:hover {
+  border-color: #fff;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
