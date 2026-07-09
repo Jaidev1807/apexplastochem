@@ -129,6 +129,121 @@
         box-shadow: 0 12px 32px rgba(12, 31, 54, 0.12);
       }
 
+      /* Stock size charts — collapsible datasheets */
+      .spec-charts {
+        margin-top: 40px;
+        max-width: 860px;
+      }
+      .spec-charts-head h3 {
+        font-family: var(--sans);
+        font-size: 19px;
+        font-weight: 640;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      .spec-charts-head p {
+        font-size: 13.5px;
+        color: var(--ink3);
+        margin: 6px 0 18px;
+      }
+      .spec-acc {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--rl);
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .spec-acc:hover,
+      .spec-acc[open] {
+        border-color: var(--blue);
+      }
+      .spec-acc summary {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 15px 20px;
+        cursor: pointer;
+        list-style: none;
+        user-select: none;
+      }
+      .spec-acc summary::-webkit-details-marker {
+        display: none;
+      }
+      .spec-acc summary::after {
+        content: "+";
+        margin-left: auto;
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--blue);
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .spec-acc[open] summary::after {
+        content: "–";
+      }
+      .acc-name {
+        font-family: var(--sans);
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .acc-meta {
+        font-family: var(--sans);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink3);
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+      }
+      .acc-body {
+        padding: 0 20px 18px;
+        overflow-x: auto;
+      }
+      .spec-table {
+        width: 100%;
+        min-width: 620px;
+        border-collapse: collapse;
+        font-family: var(--sans);
+        font-size: 12.5px;
+        font-variant-numeric: tabular-nums;
+        color: var(--ink2);
+      }
+      .spec-table th {
+        background: var(--blue-deep);
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 600;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-align: left;
+        padding: 9px 12px;
+        white-space: nowrap;
+      }
+      .spec-table th:first-child { border-radius: 4px 0 0 4px; }
+      .spec-table th:last-child  { border-radius: 0 4px 4px 0; }
+      .spec-table td {
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--border);
+        white-space: nowrap;
+      }
+      .spec-table td:first-child {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .spec-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .spec-table tbody tr:hover td {
+        background: var(--paper);
+      }
+      .acc-note {
+        font-size: 12px;
+        color: var(--ink3);
+        margin-top: 12px;
+      }
+
       /* Lightbox */
       .lightbox {
         display: none;
@@ -250,13 +365,13 @@
       </div>
       <div class="product-gallery">
         <img
-          src="../images/ibm/ibm-bottle.jpg"
-          alt="IBM HDPE Tablet Container"
+          src="../images/catalogue/ibm-tablet-containers.jpg"
+          alt="HDPE tablet containers"
           loading="lazy"
         />
         <img
-          src="../images/catalog/apex-1.jpg"
-          alt="Professional HDPE Bottles Range"
+          src="../images/catalogue/fliptop-bottles.jpg"
+          alt="HDPE containers with flip-top closures"
           loading="lazy"
         />
       </div>
@@ -284,10 +399,161 @@
       </div>
       <div class="product-gallery">
         <img
-          src="../images/catalog/apex-2.jpg"
-          alt="HDPE Packer Bottles Professional Range"
+          src="../images/catalogue/packer-bottles.jpg"
+          alt="HDPE packer bottles"
           loading="lazy"
         />
+        <img
+          src="../images/catalogue/hero-bottles.jpg"
+          alt="White HDPE bottle range"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/bottles-range.jpg"
+          alt="Full bottle range 25ml to 1L"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Stock size charts — from the wide-mouth packer catalogue -->
+      <div class="spec-charts">
+        <div class="spec-charts-head">
+          <h3>Stock size charts</h3>
+          <p>
+            Wide-mouth packer stock lines. Dimensions in inches; weights in
+            grams. T&nbsp;=&nbsp;tumble pack, all other packs are stacked.
+          </p>
+        </div>
+
+        <details class="spec-acc">
+          <summary>
+            <span class="acc-name">HDPE Round Packers — C/T</span>
+            <span class="acc-meta">40cc – 950cc · IBM</span>
+          </summary>
+          <div class="acc-body">
+            <table class="spec-table">
+              <thead>
+                <tr><th>Size</th><th>Part code</th><th>Overflow</th><th>Neck finish</th><th>Case pack</th><th>Weight</th><th>H × Ø</th><th>Process</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>40cc</td><td>40S33</td><td>54cc</td><td>33-400</td><td>1300/T</td><td>9.0</td><td>2.460 × 1.500</td><td>IBM</td></tr>
+                <tr><td>60cc</td><td>60S33</td><td>75cc</td><td>33-400</td><td>1000/T</td><td>10.0</td><td>2.975 × 1.565</td><td>IBM</td></tr>
+                <tr><td>75cc</td><td>75S38</td><td>102cc</td><td>38-400</td><td>720/T</td><td>13.0</td><td>3.160 × 1.775</td><td>IBM</td></tr>
+                <tr><td>100cc</td><td>100S38</td><td>125cc</td><td>38-400</td><td>580/T</td><td>14.5</td><td>3.360 × 1.890</td><td>IBM</td></tr>
+                <tr><td>120cc</td><td>120S38</td><td>158cc</td><td>38-400</td><td>450/T</td><td>17.0</td><td>3.792 × 2.010</td><td>IBM</td></tr>
+                <tr><td>150cc</td><td>150S38</td><td>187cc</td><td>38-400</td><td>410/T</td><td>20.0</td><td>3.920 × 2.160</td><td>IBM</td></tr>
+                <tr><td>200cc</td><td>200S38</td><td>237cc</td><td>38-400</td><td>335</td><td>21.0</td><td>4.281 × 2.313</td><td>IBM</td></tr>
+                <tr><td>250cc</td><td>250S45SS</td><td>260cc</td><td>45-400</td><td>315</td><td>23.0</td><td>4.256 × 2.425</td><td>IBM</td></tr>
+                <tr><td>500cc</td><td>500S53</td><td>576cc</td><td>53-400</td><td>140</td><td>38.0</td><td>5.750 × 3.050</td><td>IBM</td></tr>
+                <tr><td>750cc</td><td>750S53</td><td>825cc</td><td>53-400</td><td>102</td><td>46.0</td><td>6.355 × 3.465</td><td>IBM</td></tr>
+                <tr><td>950cc</td><td>950S53</td><td>1070cc</td><td>53-400</td><td>72</td><td>58.0</td><td>7.070 × 3.745</td><td>IBM</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="spec-acc">
+          <summary>
+            <span class="acc-name">HDPE Pharma Line Round Packers</span>
+            <span class="acc-meta">50cc – 950cc · IBM / EBM</span>
+          </summary>
+          <div class="acc-body">
+            <table class="spec-table">
+              <thead>
+                <tr><th>Size</th><th>Part code</th><th>Overflow</th><th>Neck finish</th><th>Case pack</th><th>Weight</th><th>H × Ø</th><th>Process</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>50cc</td><td>50PH33</td><td>63.5cc</td><td>33-400</td><td>1150/T</td><td>8.2</td><td>2.694 × 1.520</td><td>IBM</td></tr>
+                <tr><td>75cc</td><td>75PH33</td><td>84.5cc</td><td>33-400</td><td>850/T</td><td>10.0</td><td>2.978 × 1.705</td><td>IBM</td></tr>
+                <tr><td>100cc</td><td>100PH38</td><td>112cc</td><td>38-400</td><td>640/T</td><td>13.5</td><td>3.225 × 1.837</td><td>IBM</td></tr>
+                <tr><td>120cc</td><td>120PH38</td><td>140cc</td><td>38-400</td><td>510/T</td><td>13.3</td><td>3.400 × 2.015</td><td>IBM</td></tr>
+                <tr><td>150cc</td><td>150PH38</td><td>164cc</td><td>38-400</td><td>415/T</td><td>17.1</td><td>3.725 × 2.093</td><td>IBM</td></tr>
+                <tr><td>175cc</td><td>175PH38</td><td>186cc</td><td>38-400</td><td>375/T</td><td>17.1</td><td>3.850 × 2.192</td><td>IBM</td></tr>
+                <tr><td>225cc</td><td>225PH45</td><td>248.5cc</td><td>45-400</td><td>280/T</td><td>22.5</td><td>4.239 × 2.380</td><td>IBM</td></tr>
+                <tr><td>275cc</td><td>275PH45</td><td>290cc</td><td>45-400</td><td>270</td><td>25.1</td><td>4.477 × 2.507</td><td>IBM</td></tr>
+                <tr><td>300cc</td><td>300PH45</td><td>344.5cc</td><td>45-400</td><td>204</td><td>26.3</td><td>4.940 × 2.584</td><td>IBM</td></tr>
+                <tr><td>400cc</td><td>400PH45</td><td>459cc</td><td>45-400</td><td>180</td><td>32.5</td><td>5.220 × 2.895</td><td>EBM</td></tr>
+                <tr><td>500cc</td><td>500PH53</td><td>567cc</td><td>53-400</td><td>140</td><td>38.3</td><td>5.560 × 3.100</td><td>EBM</td></tr>
+                <tr><td>625cc</td><td>625PH53</td><td>673cc</td><td>53-400</td><td>140</td><td>42.0</td><td>6.169 × 3.197</td><td>EBM</td></tr>
+                <tr><td>750cc</td><td>750PH53</td><td>820cc</td><td>53-400</td><td>72</td><td>49.0</td><td>6.540 × 3.474</td><td>EBM</td></tr>
+                <tr><td>950cc</td><td>950PH53</td><td>1036cc</td><td>53-400</td><td>72</td><td>58.0</td><td>7.200 × 3.740</td><td>EBM</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="spec-acc">
+          <summary>
+            <span class="acc-name">HDPE Apothecary Packers</span>
+            <span class="acc-meta">100cc – 200cc · IBM / EBM</span>
+          </summary>
+          <div class="acc-body">
+            <table class="spec-table">
+              <thead>
+                <tr><th>Size</th><th>Part code</th><th>Overflow</th><th>Neck finish</th><th>Case pack</th><th>Weight</th><th>H × Ø</th><th>Process</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>100cc</td><td>100A38</td><td>106cc</td><td>38-400</td><td>705/T</td><td>14.5</td><td>3.375 × 1.800</td><td>IBM</td></tr>
+                <tr><td>130cc</td><td>130AS38</td><td>145cc</td><td>38-400</td><td>300/T</td><td>16.5</td><td>4.371 × 1.880</td><td>EBM</td></tr>
+                <tr><td>200cc</td><td>200A38</td><td>210cc</td><td>38-400</td><td>220/T</td><td>19.5</td><td>4.218 × 2.281</td><td>EBM</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="spec-acc">
+          <summary>
+            <span class="acc-name">HDPE Large Round Packers</span>
+            <span class="acc-meta">1000cc – 2000cc · EBM</span>
+          </summary>
+          <div class="acc-body">
+            <table class="spec-table">
+              <thead>
+                <tr><th>Size</th><th>Part code</th><th>Overflow</th><th>Neck finish</th><th>Case pack</th><th>Weight</th><th>H × Ø</th><th>Process</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1000cc</td><td>1000S100</td><td>1200cc</td><td>100-400</td><td>120</td><td>55.0</td><td>4.750 × 4.860</td><td>EBM</td></tr>
+                <tr><td>1000cc</td><td>1000S110</td><td>1250cc</td><td>110-400</td><td>120</td><td>55.0</td><td>4.750 × 4.860</td><td>EBM</td></tr>
+                <tr><td>1250cc</td><td>1250S53</td><td>1270cc</td><td>53-400</td><td>60</td><td>60.0</td><td>6.735 × 4.160</td><td>EBM</td></tr>
+                <tr><td>1250cc</td><td>1250S70</td><td>1281cc</td><td>70-400</td><td>60</td><td>60.0</td><td>6.800 × 4.160</td><td>EBM</td></tr>
+                <tr><td>1250cc</td><td>1250S100</td><td>1420cc</td><td>100-400</td><td>100</td><td>58.0</td><td>5.430 × 4.860</td><td>EBM</td></tr>
+                <tr><td>1250cc</td><td>1250S110</td><td>1450cc</td><td>110-400</td><td>100</td><td>58.0</td><td>5.430 × 4.860</td><td>EBM</td></tr>
+                <tr><td>1500cc</td><td>1500SL53</td><td>1535cc</td><td>53-400</td><td>60</td><td>72.0</td><td>7.995 × 4.160</td><td>EBM</td></tr>
+                <tr><td>1500cc</td><td>1500SL70</td><td>1530cc</td><td>70-400</td><td>60</td><td>72.0</td><td>8.025 × 4.160</td><td>EBM</td></tr>
+                <tr><td>1500cc Heavy</td><td>1500SL70HG</td><td>1530cc</td><td>70-400</td><td>60</td><td>94.0</td><td>8.025 × 4.160</td><td>EBM</td></tr>
+                <tr><td>1500cc</td><td>1500S100</td><td>1770cc</td><td>100-400</td><td>69</td><td>73.5</td><td>6.580 × 4.860</td><td>EBM</td></tr>
+                <tr><td>1500cc</td><td>1500S110</td><td>1800cc</td><td>110-400</td><td>69</td><td>73.5</td><td>6.580 × 4.860</td><td>EBM</td></tr>
+                <tr><td>1750cc</td><td>1750S100</td><td>1950cc</td><td>100-400</td><td>75</td><td>77.5</td><td>7.310 × 4.860</td><td>EBM</td></tr>
+                <tr><td>1750cc</td><td>1750S110</td><td>2000cc</td><td>110-400</td><td>75</td><td>77.5</td><td>7.310 × 4.860</td><td>EBM</td></tr>
+                <tr><td>2000cc</td><td>2000S100</td><td>2365cc</td><td>100-400</td><td>66</td><td>88.5</td><td>8.590 × 4.860</td><td>EBM</td></tr>
+                <tr><td>2000cc</td><td>2000S110</td><td>2380cc</td><td>110-400</td><td>66</td><td>88.5</td><td>8.590 × 4.860</td><td>EBM</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="spec-acc">
+          <summary>
+            <span class="acc-name">HDPE Indented Large Rounds</span>
+            <span class="acc-meta">2000cc – 3000cc · EBM</span>
+          </summary>
+          <div class="acc-body">
+            <table class="spec-table">
+              <thead>
+                <tr><th>Size</th><th>Part code</th><th>Overflow</th><th>Neck finish</th><th>Case pack</th><th>Weight</th><th>H × Ø</th><th>Process</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>2000cc</td><td>2000I110</td><td>2042cc</td><td>110-400</td><td>770/pal.</td><td>91.0</td><td>7.125 × 5.045</td><td>EBM</td></tr>
+                <tr><td>2500cc</td><td>2500I110</td><td>2663cc</td><td>110-400</td><td>590/pal.</td><td>112.0</td><td>7.760 × 5.556</td><td>EBM</td></tr>
+                <tr><td>3000cc</td><td>3000I110</td><td>3370cc</td><td>110-400</td><td>472/pal.</td><td>112.0</td><td>9.686 × 5.575</td><td>EBM</td></tr>
+              </tbody>
+            </table>
+            <p class="acc-note">
+              Indented large rounds pack in perforated bags and sell in full
+              pallets; minimums may apply.
+            </p>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -313,8 +579,23 @@
       </div>
       <div class="product-gallery">
         <img
-          src="../images/catalog/apex-1.jpg"
-          alt="HDPE PP Jars Professional Range"
+          src="../images/catalogue/jars-large.jpg"
+          alt="Large HDPE jar with small jars"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/hero-jars.jpg"
+          alt="Colour HDPE jars"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/jars-cream.jpg"
+          alt="Cream and cosmetic jars"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/dairy-jug.jpg"
+          alt="Dairy jug with handle"
           loading="lazy"
         />
       </div>
@@ -342,8 +623,23 @@
       </div>
       <div class="product-gallery">
         <img
-          src="../images/catalog/apex-3.jpg"
-          alt="HDPE Jerrycans with Vimal Branding"
+          src="../images/catalogue/jerrycans-vimal.jpg"
+          alt="HDPE jerrycans with Vimal branding"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/jerrycans-white.jpg"
+          alt="White HDPE jerrycans"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/jerrycan-green.jpg"
+          alt="Green branded jerrycan"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/jerrycan-5l.jpg"
+          alt="5 litre HDPE jerrycan"
           loading="lazy"
         />
       </div>
@@ -369,8 +665,8 @@
       </div>
       <div class="product-gallery">
         <img
-          src="../images/dose-dispensing/dose-1.jpg"
-          alt="Dose Dispensing"
+          src="../images/catalogue/dose-dispensing.jpg"
+          alt="Dose dispensing container"
           loading="lazy"
         />
       </div>
@@ -398,8 +694,23 @@
       </div>
       <div class="product-gallery">
         <img
-          src="../images/catalog/caps-1.jpg"
-          alt="Caps and Closures Professional Range"
+          src="../images/catalogue/hero-caps.jpg"
+          alt="Flip-top caps range"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/caps-crc.jpg"
+          alt="Child-resistant closures"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/caps-spice.jpg"
+          alt="Spice caps with sifter"
+          loading="lazy"
+        />
+        <img
+          src="../images/catalogue/caps-metalized.jpg"
+          alt="Metalised caps"
           loading="lazy"
         />
       </div>
@@ -426,8 +737,8 @@
       </div>
       <div class="product-gallery">
         <img
-          src="../images/inners-plugs/plug-1.jpg"
-          alt="Bowl Type Inner Plug"
+          src="../images/catalogue/inners-plugs.jpg"
+          alt="Inner plugs and sifter closures"
           loading="lazy"
         />
       </div>
@@ -465,7 +776,7 @@
       </div>
     </footer>
 
-    <!-- Lightbox -->
+    <!-- Lightbox overlay -->
     <div class="lightbox" id="lightbox">
       <span class="lightbox-close">&times;</span>
       <img src="" alt="Product enlarged" />
