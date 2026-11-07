@@ -135,6 +135,19 @@
   text-transform: uppercase;
 }
 
+/* Link to product detail page */
+.card-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brass);
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
 /* Section footer CTA */
 .products-cta {
   text-align: center;
