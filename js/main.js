@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       errorMsg.style.display = 'none';
 
       var formData = new FormData(this);
-      fetch('https://formsubmit.co/ajax/info@apexplastochem.com', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: formData
