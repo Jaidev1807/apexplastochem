@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# Repo notes file, not a public page
+Disallow: /README.md
+
+Sitemap: https://apexplastochem.com/sitemap.xml

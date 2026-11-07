@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hand-maintained sitemap. When you add a new page, add a <url> block for it.
+  When you meaningfully change a page, update its <lastmod> (YYYY-MM-DD).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://apexplastochem.com/</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://apexplastochem.com/products/</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+</urlset>
